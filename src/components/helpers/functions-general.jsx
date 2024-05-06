@@ -1,0 +1,1 @@
+export const baseImgUrl = "http://localhost/react-portfolio/public/img/";

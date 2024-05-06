@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Roboto-bold';
+  src: url(/fonts/roboto-bold.woff) format("woff"), 
+       url(/fonts/roboto-bold.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto-regular';
+  src: url(/fonts/roboto-regular.woff) format("woff"), 
+       url(/fonts/roboto-regular.woff2) format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto-medium';
+  src: url(/fonts/roboto-medium.woff) format("woff"), 
+       url(/fonts/roboto-medium.woff2) format("woff2");
+  font-display: swap;
+}
+
+
+@layer base{
+  body{
+    @apply bg-accent leading-7 font-regular 
+  }
+
+  a{
+    @apply text-white
+  }
+
+  ul{
+    @apply list-none text-white
+  }
+
+  img{
+    @apply block w-full h-auto  
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    @apply text-white font-thicker 
+  }
+  h1{
+    @apply text-3xl mb-4
+  }
+  h2{
+    @apply text-xl mb-4
+  }
+  h3{
+    @apply text-lg mb-2
+  }
+  h4{
+    @apply text-base mb-4
+  }
+  p{
+    @apply mb-2 text-white !leading-6 
+  }
+}
+
+
+@layer components{
+  .btn{
+    @apply inline-block p-1 bg-transparent text-white border border-transparent rounded-full items-center cursor-pointer
+  }
+  .btn-header{
+    @apply bg-buttons text-center w-[140px] h-[40px]
+  }
+  .btn-header:hover{
+    @apply border-[1px] border-btncircle bg-transparent
+  }
+
+  .btn-home{
+    @apply bg-buttons text-center w-[210px] h-[55px] font-thick relative 
+    flex justify-center items-center decoration-0 pl-[40px] cursor-pointer transition-all duration-[.50s]
+  }
+  .btn-home:hover{
+    @apply pl-0 pr-[40px]
+  }
+  .iconround{
+    @apply absolute left-[5px] w-[50px] transition-all duration-[.50s] flex justify-center items-center 
+  }
+  .btn-home:hover .iconround{
+    @apply left-[calc(100%-55px)]
+  }
+}
+
+
+.nav-link{
+  @apply p-3 bg-lightcolor rounded-full
+}
