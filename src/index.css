@@ -87,7 +87,7 @@
 
 
   .card {
-   @apply h-[500px] w-[350px] relative
+   @apply h-[490px] w-[360px] relative
     transition-all duration-[0.4s] 
     rounded-[16px]
     overflow-hidden 
@@ -119,7 +119,7 @@
     @apply w-[100%] h-[100%] object-cover scale-[1] transition-all ease-in-out duration-[1s]
   }
   .card:hover .card-description img{
-    @apply  w-[350px] h-[300px] object-cover scale-[1] transition-all ease-in-out duration-[1s]
+    @apply  w-[360px] h-[300px] object-cover scale-[1] transition-all ease-in-out duration-[1s]
   }
   
   /* Hover states */
@@ -129,7 +129,7 @@
   
 
   .inputGroup {
-    @apply mt-[1rem]
+    @apply mt-[1rem] mb-2 w-full
     relative
   }
   
@@ -161,15 +161,16 @@
     @apply
     absolute
     top-0 left-5
+    p-[.5rem]
     pointer-events-none
-    transition-all duration-[0.3s] 
+    transition-all 
     text-lightcolor
     
   }
   
-  .inputGroup input:focus + label, .inputGroup input:valid + label, .inputGroup textarea:valid + label {
+  .inputGroup input:focus + label, .inputGroup textarea:focus + label {
     @apply transform -translate-y-[50%] scale-[0.8]
-    bg-primary
+    bg-primary m-0 
     text-lightcolor 
   }
   

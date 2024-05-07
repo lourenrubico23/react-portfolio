@@ -5,6 +5,8 @@ import { baseImgUrl } from '../../helpers/functions-general'
 import { Link } from 'react-router-dom'
 import { FaArrowCircleRight, FaDownload, FaEnvelopeOpen, FaGraduationCap, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { BsSend } from 'react-icons/bs'
+import Footer from '../../partials/footer/Footer'
 
 const Home = () => {
   return (
@@ -15,8 +17,8 @@ const Home = () => {
     
 
     <div className="banner pt-[100px] container text-lightcolor">
-        <div className="banner__wrapper flex items-center">
-            <img src={`${baseImgUrl}/pichome.svg`} alt="" className='size-[900px]' />
+        <div className="banner__wrapper grid grid-cols-2 items-center">
+            <img src={`${baseImgUrl}/pichome.svg`} alt="" className='size-[800px]' />
             <div className="banner__content">
                 <h1 className='text-7xl leading-[3.8rem] uppercase mb-10'>Louren <br /> Isobel <br />Rubico</h1>
                 <h3 className='w-[500px] mb-10'>I specialize in creating clean and user-friendly experiences as a web developer and front-end developer from the Philippines.
@@ -33,11 +35,11 @@ My life's work is creating high-quality software that makes a positive impact on
             <div className="aboutme__wrapper">
                 <h3 className='uppercase text-buttons mb-[80px]'>Personal info</h3>
 
-                <div className="about flex flex-col-2 gap-20">
+                <div className="about flex flex-col-2 gap-10">
 
-                    <div className="info flex flex-col-2 gap-[8rem] h-full">
+                    <div className="info flex flex-col-2 gap-[5rem] h-full">
                         <div className="right flex flex-col-2 gap-10">
-                            <ul className="name">
+                            <ul className="name ">
                                 <li className='mb-8'><small className='text-[.9rem]'>First name: </small></li>
                                 <li className='mb-8'><small className='text-[.9rem]'>Age: </small></li> 
                                 <li className='mb-8'><small className='text-[.9rem]'>Freelance: </small></li>
@@ -54,7 +56,7 @@ My life's work is creating high-quality software that makes a positive impact on
                             
                         </div>
 
-                        <div className="left flex flex-col-2 gap-10 justify-end w-[400px]">
+                        <div className="left flex flex-col-2 gap-10">
                             <ul className='name'>
                                 <li className='mb-8'><small className='text-[.9rem]'>Last name: </small></li>
                                 <li className='mb-8'><small className='text-[.9rem]'>Nationality: </small></li>
@@ -161,7 +163,7 @@ My life's work is creating high-quality software that makes a positive impact on
         <div className="container">
         <h1 className='text-7xl opacity-[16%] text-primary text-center uppercase'>Works</h1>
         <h2 className='uppercase text-3xl text-center -translate-y-[60px] text-lightcolor'>Projects</h2>
-            <div className="projects__wrapper mb-10 flex flex-cols-3 gap-5  w-[70%] mx-auto">
+            <div className="projects__wrapper mb-10 flex flex-cols-3 gap-5  w-[full] mx-auto">
 
                     <div className="card rounded-[1rem] bg-lightcolor overflow-hidden mx-auto">
                         <div className="card-img">
@@ -255,29 +257,35 @@ My life's work is creating high-quality software that makes a positive impact on
                     </div>
                 </div>
 
-                <div className="inputs">
-                    <div className="names grid grid-cols-2">
+                <div className="inputs max-w-[700px]">
+                    <div className="names grid grid-cols-2 gap-2">
                         <div class="inputGroup">
-                            <input type="text" required="" autoComplete='off' className='max-w-[400px]'/>
-                            <label for="name">First Name</label>
+                            <input type="text" required="" autoComplete='off' className='max-w-[100%]'/>
+                            <label for="name">Your Name</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" required="" autoComplete='off' className='max-w-[400px]'/>
-                            <label for="name">Last Name</label>
+                            <input type="text" required="" autoComplete='off' className='max-w-[100%]'/>
+                            <label for="name">Your Email</label>
                         </div>
                     </div>
                     <div class="inputGroup">
-                            <input type="text" required="" autoComplete='off' className='max-w-[887px]'/>
-                            <label for="name">Last Name</label>
+                            <input type="text" required="" autoComplete='off' className='max-w-[700px] mb-2'/>
+                            <label for="name">Your Subject</label>
                     </div>
                     <div class="inputGroup">
-                            <textarea name="" id="" className='max-w-[887px] max-h-[900px]'></textarea>
-                            <label for="name">Last Name</label>
+                            <textarea name="" id="" className='max-w-[700px] h-[160px]'></textarea>
+                            <label for="name">Your Message</label>
                     </div>
+                    <div className='flex justify-end'>
+                        <a href="" className="btn btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><BsSend className='text-2xl font-thicker text-darkcolor' /></span>Send Message</a>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </section>
+    
+    <Footer/>
 
 
     </>
