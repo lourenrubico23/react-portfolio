@@ -7,6 +7,17 @@ import { FaArrowCircleRight, FaDownload, FaEnvelopeOpen, FaGraduationCap, FaMapM
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 
 const Home = () => {
+
+    const onButtonClick = () => {
+        const pdfUrl = "CV_Rubico.pdf";
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "CV_Rubico.pdf"; // specify the filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
+
   return (
     <>
     
@@ -92,7 +103,7 @@ My life's work is creating high-quality software that makes a positive impact on
                         </div>
                     </div>
                 </div>
-                <a href="" className="btn btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a>
+                <a href="" className="btn btn-home uppercase" onClick={onButtonClick}><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a>
             </div>
 
             <h3 className='uppercase text-white mt-[80px] mb-[100px] text-center'>skills</h3>
