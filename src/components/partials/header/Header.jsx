@@ -6,6 +6,7 @@ import { FaArrowCircleRight } from 'react-icons/fa'
 const Header = () => {
   return (
     <header className='py-3 px-[150px] bg-primary min-w-[1440px] w-full mx-auto fixed z-50'>
+      <div className="container">
         <div className="header__wrapper flex justify-between items-center ">
             <img src={`${baseImgUrl}/logo.svg`} alt="" className='size-[60px]'  />
 
@@ -16,6 +17,8 @@ const Header = () => {
                 <Link to="#" className='btn btn-header'>Contact Me</Link>  
             </div>
         </div>
+      </div>
+        
     </header>
   )
 }
