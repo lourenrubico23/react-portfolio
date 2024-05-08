@@ -124,7 +124,7 @@
   
   /* Hover states */
   .card:hover .card-description {
-    @apply transform translate-y-[48%] 
+    @apply transform translate-y-[48%]
   }
   
 
@@ -184,4 +184,12 @@
 .nav-link{
   @apply p-2 bg-lightcolor rounded-full hover:bg-primary
 }
+
+.myprojects .project__wrapper:nth-child(odd) .project__content{
+  @apply order-1 translate-x-[50px]
+}
+.myprojects:nth-child(even){
+  @apply bg-primary
+}
+
 
