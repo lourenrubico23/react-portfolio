@@ -1,12 +1,16 @@
 import React from 'react'
-import Header from '../../partials/header/Header'
-import { baseImgUrl } from '../../helpers/functions-general'
+import Header from '../../../../partials/header/Header'
+import { baseImgUrl } from '../../../../helpers/functions-general'
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import Socials from '../../partials/Socials'
+import Socials from '../../../../partials/Socials'
 import { FaGraduationCap } from 'react-icons/fa'
-import Footer from '../../partials/footer/Footer'
+import Footer from '../../../../partials/footer/Footer'
+import { StoreContext } from '../../../../../store/StoreContext'
+import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching'
+import useQueryData from '../../../../custom-hooks/useQueryData'
 
-const About = () => {
+const About = ({item}) => {
+    const {store,dispatch} = React.useContext(StoreContext)
 
     const onButtonClick = () => {
         const pdfUrl = "CV_Rubico.pdf";
@@ -18,6 +22,19 @@ const About = () => {
         document.body.removeChild(link);
       };
 
+
+      const {
+        isLoading,
+        isFetching,
+        error,
+        data: aboutme,
+      } = useQueryData(
+          "/v1/aboutme", // endpoint
+         "get", // method
+       "aboutme", // key
+      
+      );
+
   return (
     <>
     <Header/>
@@ -25,33 +42,34 @@ const About = () => {
 
     <div className="banner pt-[100px] h-full bg-primary text-lightcolor py-[5rem]">
         <div className="banner__wrapper grid grid-cols-[.4fr,1fr] items-center container">
-            <div className="banner__content ">
+            
+            {isLoading ? (<SpinnerFetching/>) : (
+                <div className="banner__content" >
+                    
                 <h1 className='text-7xl leading-[3.8rem] uppercase mb-20 '>About <br /> Me</h1>
                 <h2 className='text-3xl'>I am Louren Isobel Rubico</h2>
                 <p className='w-[600px] mb-10'>A Filipino web designer and front-end developer based in the Philippines, I bring a unique blend of cultural insight, creativity, and technical expertise to every project I undertake. With a deep understanding of both local and global design trends, I strive to create visually stunning and user-friendly websites that resonate with diverse audiences.</p>
-                
-                <div className="educards">
+                {aboutme?.data.map((item, key) => (
+                        <div className="educards" key={key}>
                     <div className="educard grid grid-cols-[.5fr,3fr]">
                         <span className='p-2 bg-btncircle border-[1px] border-buttons rounded-full w-[50px] h-[50px]'><FaGraduationCap className='text-3xl text-darkcolor mx-auto'/></span>
                         <div className="cardinfo">
-                            <h4>2019-Present</h4>
-                            <p className='mb-5'>BS Information Technology STI College San Pablo</p>
-                            <h4>2017-2019</h4>
-                            <p>Science, Technology, Engineering & Mathematics (STEM)</p>
-                            <p>Senior High school</p>
-                            <p className='mb-5'>STI College San Pablo</p>
-                            <h4>2013-2017</h4>
-                            <p>Junior High school</p>
-                            <p>Our Lady of Sorrows Academy</p>
+                            <h4>{item.aboutme_startYear}-{item.aboutme_endYear}</h4>
+                            <p>{item.aboutme_course}</p>
+                            <p className='mb-5'>{item.aboutme_school}</p>
                         </div>
                     </div>
                 </div>
+                    )) }
+                
                 <div className="banner__button flex justify-between py-10">
                    <a href="/CV_Rubico.pdf"  className="btn btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a> 
                    <a href="" className="btn btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineKeyboardArrowRight className='text-2xl font-thicker text-darkcolor' /></span>view projects</a>
                 </div>
                 
             </div>
+            )}
+            
             <img src={`${baseImgUrl}/picabout.svg`} alt="" className='-translate-x-[50px]' />
         </div>
     </div>

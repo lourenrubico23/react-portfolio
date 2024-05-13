@@ -1,7 +1,7 @@
 import React from 'react'
-import { baseImgUrl } from '../../helpers/functions-general'
 import { FaGraduationCap } from 'react-icons/fa'
 import { MdOutlineFileDownload } from 'react-icons/md'
+import { baseImgUrl } from '../../../../helpers/functions-general';
 
 const AboutMe = () => {
 

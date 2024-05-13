@@ -1,15 +1,15 @@
 import React from 'react'
-import Socials from '../../partials/Socials'
-import Header from '../../partials/header/Header'
-import { baseImgUrl } from '../../helpers/functions-general'
 import { Link } from 'react-router-dom'
 import { FaArrowCircleRight, FaDownload, FaEnvelopeOpen, FaGraduationCap, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import { BsSend } from 'react-icons/bs'
-import Footer from '../../partials/footer/Footer'
-import Contact from './Contact'
-import Projects from './Projects'
+import Socials from '../../../../partials/Socials'
 import AboutMe from './AboutMe'
+import Projects from './Projects'
+import Contact from './Contact'
+import Header from '../../../../partials/header/Header'
+import { baseImgUrl } from '../../../../helpers/functions-general'
+import Footer from '../../../../partials/footer/Footer'
 
 const Home = () => {
 
