@@ -3,13 +3,13 @@
 Class Projects {
     public $projects_aid;
     public $projects_title;
-    public $projects_description;
-    public $projects_image;
     public $projects_category;
+    public $projects_image;
+    public $projects_publish_date;
+    public $projects_description;
     public $projects_is_active;
     public $projects_created;
     public $projects_datetime;
-   
    
     public $projects_search;
 
@@ -28,25 +28,28 @@ Class Projects {
         try {
             $sql = "insert into {$this->tblProjects} ";
             $sql .= "(projects_title, ";
-            $sql .= "projects_description, "; 
             $sql .= "projects_category, "; 
             $sql .= "projects_image, "; 
+            $sql .= "projects_publish_date, "; 
+            $sql .= "projects_description, "; 
             $sql .= "projects_is_active, "; 
             $sql .= "projects_created, "; 
             $sql .= "projects_datetime ) values ( "; 
             $sql .= ":projects_title, "; 
-            $sql .= ":projects_description, "; 
             $sql .= ":projects_category, "; 
             $sql .= ":projects_image, "; 
+            $sql .= ":projects_publish_date, "; 
+            $sql .= ":projects_description, "; 
             $sql .= ":projects_is_active, "; 
             $sql .= ":projects_created, "; 
-            $sql .= ":projects_datetime ) "; 
+            $sql .= ":projects_datetime )"; 
             $query = $this->connection->prepare($sql);
             $query->execute([
                 "projects_title"=> $this->projects_title,
-                "projects_description"=> $this->projects_description,
-                "projects_image"=> $this->projects_image,
                 "projects_category"=> $this->projects_category,
+                "projects_image"=> $this->projects_image,
+                "projects_publish_date"=> $this->projects_publish_date,
+                "projects_description"=> $this->projects_description,
                 "projects_is_active"=> $this->projects_is_active,
                 "projects_created"=> $this->projects_created,
                 "projects_datetime"=> $this->projects_datetime,
@@ -65,7 +68,7 @@ Class Projects {
         try {
             $sql = "select * ";
             $sql .= "from {$this->tblProjects} ";
-            $sql .= "order by projects_aid asc ";
+            $sql .= "order by projects_is_active desc ";
             $query = $this->connection->query($sql);
         } catch (PDOException $ex) {
             $query = false;
@@ -95,17 +98,19 @@ Class Projects {
         try {
             $sql = "update {$this->tblProjects} set ";
             $sql .= "projects_title = :projects_title, ";
-            $sql .= "projects_description = :projects_description, ";
             $sql .= "projects_image = :projects_image, ";
+            $sql .= "projects_publish_date = :projects_publish_date, ";
+            $sql .= "projects_description = :projects_description, ";
             $sql .= "projects_category = :projects_category, ";
             $sql .= "projects_datetime = :projects_datetime ";
             $sql .= "where projects_aid  = :projects_aid ";
             $query = $this->connection->prepare($sql);
             $query->execute([
                 "projects_title" => $this->projects_title,
-                "projects_description" => $this->projects_description,
                 "projects_image" => $this->projects_image,
                 "projects_category" => $this->projects_category,
+                "projects_publish_date" => $this->projects_publish_date,
+                "projects_description" => $this->projects_description,
                 "projects_datetime" => $this->projects_datetime,
                 "projects_aid" => $this->projects_aid,
             ]);
@@ -119,8 +124,8 @@ Class Projects {
     public function active()
     {
         try {
-            $sql = "update {$this->tblAboutme} set ";
-            $sql .= "Aboutme_is_active = :projects_is_active, ";
+            $sql = "update {$this->tblProjects} set ";
+            $sql .= "projects_is_active = :projects_is_active, ";
             $sql .= "projects_datetime = :projects_datetime ";
             $sql .= "where projects_aid  = :projects_aid ";
             $query = $this->connection->prepare($sql);

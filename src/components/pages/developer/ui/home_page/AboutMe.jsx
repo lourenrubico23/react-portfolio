@@ -82,7 +82,7 @@ const AboutMe = () => {
                         </div>
                     </div>
                 </div>
-                <a href="/CV_Rubico.pdf"  className="btn btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a>
+                <a href="/CV_Rubico.pdf"  className="btn2 btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a>
             </div>
 
             <h3 className='uppercase text-white mt-[80px] mb-[100px] text-center'>skills</h3>

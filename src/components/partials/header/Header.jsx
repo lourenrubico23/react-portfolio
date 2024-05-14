@@ -14,7 +14,7 @@ const Header = () => {
                 <Link to="/home" className='hover:text-buttons p-1'>Home</Link>
                 <Link to="/about" className='hover:text-buttons p-1'>About Me</Link>
                 <Link to="/project" className='hover:text-buttons p-1'>Projects</Link>
-                <Link to="/contact" className='btn btn-header'>Contact Me</Link>  
+                <Link to="/contact" className='btn2 btn-header'>Contact Me</Link>  
             </div>
         </div>
       </div>
