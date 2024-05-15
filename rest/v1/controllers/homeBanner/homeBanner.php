@@ -2,7 +2,7 @@
 
 require '../../core/header.php';
 require '../../core/functions.php';
-require '../../models/Aboutme.php';
+require '../../models/HomeBanner.php';
 
 $body = file_get_contents('php://input');
 $data = json_decode($body, true);

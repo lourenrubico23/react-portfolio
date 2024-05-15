@@ -9,6 +9,7 @@ import Portfolio from "./components/pages/developer/dashboard/portfolio/Portfoli
 import Projects from "./components/pages/developer/dashboard/projects/Projects"
 import Skills from "./components/pages/developer/dashboard/skills/Skills"
 import Message from "./components/pages/developer/dashboard/message/Message"
+import HomeBanner from "./components/pages/developer/dashboard/homeBanner/HomeBanner"
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/dashboard/projects" element={<Projects/>}/>
           <Route path="/dashboard/skills" element={<Skills/>}/>
           <Route path="/dashboard/message" element={<Message/>}/>
+          <Route path="/dashboard/homebanner" element={<HomeBanner/>}/>
         </Routes>
       </Router>
       </StoreProvider>

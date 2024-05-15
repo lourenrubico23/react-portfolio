@@ -7,13 +7,14 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import { RxDashboard } from 'react-icons/rx'
 import { Link } from 'react-router-dom'
 import Logo from './svg/Logo'
+import { baseImgUrl } from '../helpers/functions-general'
 
 const Navigation = () => {
   return (
     <aside className='px-4 py-6 w-[250px] h-screen border-r border-line'>
         <div className='flex items-center gap-2'>
-          <Logo/>
-          <h2 className='mb-0'>School</h2>
+        <img src={`${baseImgUrl}/logo.svg`} alt="" className='size-[60px]'/>
+          <h2 className='mb-0'>Portfolio Dashboard</h2>
         </div>
         
 

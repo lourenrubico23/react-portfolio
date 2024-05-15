@@ -58,7 +58,6 @@ const ModalAddSkills = ({itemEdit}) => {
     const yupSchema = Yup.object({
         skills_title: Yup.string().required("Required*"),
         skills_category: Yup.string().required("Required*"),
-        skills_image: Yup.string().required("Required*"),
         skills_description: Yup.string().required("Required*"),
         skills_publish_date: Yup.string().required("Required*"),
     })
@@ -103,9 +102,9 @@ const ModalAddSkills = ({itemEdit}) => {
                             />
                             ) : (
                             <span className="min-h-20 flex items-center justify-center">
-                                <span className="text-accent mr-1">Drag & Drop</span>{" "}
+                                <span className="text-primary mr-1 underline">Drag & Drop</span>{" "}
                                 photo here or{" "}
-                                <span className="text-accent ml-1">Browse</span>
+                                <span className="text-primary ml-1 underline">Browse</span>
                             </span>
                             )}
 

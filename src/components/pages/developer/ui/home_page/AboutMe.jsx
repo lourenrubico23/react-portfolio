@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaGraduationCap } from 'react-icons/fa'
 import { MdOutlineFileDownload } from 'react-icons/md'
-import { baseImgUrl } from '../../../../helpers/functions-general';
+import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general';
+import Skills from './Skills';
 
 const AboutMe = () => {
 
@@ -14,6 +15,8 @@ const AboutMe = () => {
         link.click();
         document.body.removeChild(link);
       };
+
+      
 
   return (
     <section className="aboutme bg-primary py-[5rem] text-lightcolor">
@@ -85,30 +88,7 @@ const AboutMe = () => {
                 <a href="/CV_Rubico.pdf"  className="btn2 btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a>
             </div>
 
-            <h3 className='uppercase text-white mt-[80px] mb-[100px] text-center'>skills</h3>
-
-            <div className="flex gap-10 justify-around w-full py-10 text-lightcolor">
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/java.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>java</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/css.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>css</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/html.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>html</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/react.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>react js</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/figma.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>figma</h4>
-                </div>
-            </div>
+            <Skills/>
 
             <h3 className='uppercase text-white mt-[80px] mb-[80px] text-center text-lightcolor'>education</h3>
 

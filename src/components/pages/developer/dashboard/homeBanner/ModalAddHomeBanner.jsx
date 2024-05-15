@@ -13,30 +13,28 @@ import useUploadPhoto from '../../../../custom-hooks/useUploadPhoto'
 import { devBaseImgUrl } from '../../../../helpers/functions-general'
 
 
-const ModalAddProjects = ({itemEdit}) => {
+const ModalAddHomeBanner = ({itemEdit}) => {
     const {store, dispatch} = React.useContext(StoreContext)
 
     const handleClose = () => dispatch(setIsAdd(false))
-
 
     const { uploadPhoto, handleChangePhoto, photo } = useUploadPhoto(
         `/v1/upload/photo`,
         dispatch
       );
 
-      
     const queryClient = useQueryClient();
     const mutation = useMutation({
         mutationFn: (values) =>
         queryData(
-            itemEdit ? `/v1/projects/${itemEdit.projects_aid}` : `/v1/projects`,
+            itemEdit ? `/v1/homeBanner/${itemEdit.homeBanner_aid}` : `/v1/homeBanner`,
             itemEdit ? "put" : "post",
             values
         ),
         // ;
 
         onSuccess: (data) => {
-        queryClient.invalidateQueries({ queryKey: ["projects"] });
+        queryClient.invalidateQueries({ queryKey: ["homeBanner"] });
         if (data.success) {
             dispatch(setIsAdd(false));
             dispatch(setSuccess(true));
@@ -50,25 +48,25 @@ const ModalAddProjects = ({itemEdit}) => {
     });
 
     const initVal = {
-        projects_title: itemEdit ? itemEdit.projects_title : "",
-        projects_category: itemEdit ? itemEdit.projects_category : "",
-        projects_image: itemEdit ? itemEdit.projects_image : "",
-        projects_description: itemEdit ? itemEdit.projects_description : "",
-        projects_publish_date: itemEdit ? itemEdit.projects_publish_date : "",
+        homeBanner_title: itemEdit ? itemEdit.homeBanner_title : "",
+        homeBanner_category: itemEdit ? itemEdit.homeBanner_category : "",
+        homeBanner_image: itemEdit ? itemEdit.homeBanner_image : "",
+        homeBanner_description: itemEdit ? itemEdit.homeBanner_description : "",
+        homeBanner_publish_date: itemEdit ? itemEdit.homeBanner_publish_date : "",
     }
 
     const yupSchema = Yup.object({
-        projects_title: Yup.string().required("Required*"),
-        projects_category: Yup.string().required("Required*"),
-        projects_description: Yup.string().required("Required*"),
-        projects_publish_date: Yup.string().required("Required*"),
+        homeBanner_title: Yup.string().required("Required*"),
+        homeBanner_category: Yup.string().required("Required*"),
+        homeBanner_description: Yup.string().required("Required*"),
+        homeBanner_publish_date: Yup.string().required("Required*"),
     })
 
   return (
     <ModalWrapper>
     <div className="main-modal w-[300px] bg-accent text-darkcolor h-full ">
               <div className="modal-header p-4 relative">
-                  <h2>New Projects</h2>
+                  <h2>New Banner Info</h2>
                   <button className='absolute top-[25px] right-4' onClick={handleClose}><LiaTimesSolid/></button>
               </div>
               <div className="modal-body p-4 ">
@@ -78,26 +76,25 @@ const ModalAddProjects = ({itemEdit}) => {
                         onSubmit={async (values) => {
                             uploadPhoto()
                             mutation.mutate({...values, 
-                                projects_image:
-                                (itemEdit && itemEdit.projects_image === "") || photo
+                                homeBanner_image:
+                                (itemEdit && itemEdit.homeBanner_image === "") || photo
                                   ? photo === null
-                                    ? itemEdit.projects_image
+                                    ? itemEdit.homeBanner_image
                                     : photo.name
-                                  : values.projects_image,})
+                                  : values.homeBanner_image,})
                           }}
                   >
                       {(props) => {
                           return (
                       <Form  className='flex flex-col h-[calc(100vh-110px)]'>
                       <div className='grow overflow-y-auto'>
+                        <div className="input-wrap">
 
-                         <div className="input-wrap">
-
-                            {photo || (itemEdit && itemEdit.projects_image !== "") ? (
+                            {photo || (itemEdit && itemEdit.homeBanner_image !== "") ? (
                             <img src={ photo
                                 ? URL.createObjectURL(photo) // preview
-                                : itemEdit.projects_image // check db
-                                ? devBaseImgUrl + "/" + itemEdit.projects_image
+                                : itemEdit.homeBanner_image // check db
+                                ? devBaseImgUrl + "/" + itemEdit.homeBanner_image
                                 : null
                             }
                             alt="Photo"
@@ -112,7 +109,7 @@ const ModalAddProjects = ({itemEdit}) => {
                             )}
 
                             {(photo !== null ||
-                                (itemEdit && itemEdit.projects_image !== "")) && (
+                                (itemEdit && itemEdit.homeBanner_image !== "")) && (
                                 <span className="min-h-10 flex items-center justify-center">
                                 <span className="text-accent mr-1">Drag & Drop</span>{" "}
                                 photo here or{" "}
@@ -132,33 +129,34 @@ const ModalAddProjects = ({itemEdit}) => {
                                 onDrop={(e) => handleChangePhoto(e)}
                                 className="opacity-0 absolute right-0 bottom-0 left-0 m-auto cursor-pointer h-full "
                             />
-                        </div>    
+                        </div>   
+
                       <div className="input-wrap">
                           <InputText
                               label="Title"
                               type="text"
-                              name="projects_title"
+                              name="homeBanner_title"
                           />
                       </div>
                       <div className="input-wrap">
                           <InputText
                               label="Category"
                               type="text"
-                              name="projects_category"
+                              name="homeBanner_category"
                           />
                       </div>
                       <div className="input-wrap">
                           <InputText
                               label="Image"
                               type="text"
-                              name="projects_image"
+                              name="homeBanner_image"
                           />
                       </div>
                       <div className="input-wrap">
                           <InputTextArea
                               label="Description"
                               type="text"
-                              name="projects_description"
+                              name="homeBanner_description"
                               className='h-[10rem] resize-none'
                           />
                       </div>
@@ -166,7 +164,7 @@ const ModalAddProjects = ({itemEdit}) => {
                           <InputText
                               label="Publish Date"
                               type="text"
-                              name="projects_publish_date"
+                              name="homeBanner_publish_date"
                           />
                       </div>
 
@@ -190,4 +188,4 @@ const ModalAddProjects = ({itemEdit}) => {
   )
 }
 
-export default ModalAddProjects
+export default ModalAddHomeBanner

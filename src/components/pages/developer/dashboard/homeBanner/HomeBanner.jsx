@@ -9,10 +9,10 @@ import ModalError from '../../../../partials/modals/ModalError'
 import Toast from '../../../../partials/Toast'
 import HeaderDashboard from '../header/HeaderDashboard'
 import Searchbar from './Searchbar'
-import SkillsTable from './SkillsTable'
-import ModalAddSkills from './ModalAddSkills'
+import HomeBannerTable from './HomeBannerTable'
+import ModalAddHomeBanner from './ModalAddHomeBanner'
 
-const Skills = () => {
+const HomeBanner = () => {
     const {store, dispatch} =React.useContext(StoreContext)
     const [isSearch, setIsSearch] = React.useState(false)
     const [keyword, setKeyword] = React.useState('')
@@ -22,11 +22,11 @@ const Skills = () => {
         isLoading,
         isFetching,
         error,
-        data: skills,
+        data: homeBanner,
       } = useQueryData(
-        isSearch ? "/v1/skills/search" : "/v1/skills", // endpoint
+        isSearch ? "/v1/homeBanner/search" : "/v1/homeBanner", // endpoint
         isSearch ? "post" : "get", // method
-        "skills", // key
+        "homeBanner", // key
         {
             searchValue: keyword
         }
@@ -46,7 +46,7 @@ const Skills = () => {
         <div className='flex relative'>
             <div className='main-wrapper transition-all px-4 py-3 w-full'>
                 <div className='flex justify-between items-center'>
-                    <h1>Skills</h1>
+                    <h1>Home Banner</h1>
                     <Searchbar setIsSeach={setIsSearch} setKeyword={setKeyword}/>
                 </div>    
             
@@ -54,27 +54,27 @@ const Skills = () => {
                 
                         <ul className='flex space-x-10 '>
                             <li className='tab-link '><Link to="/dashboard/projects">Projects</Link></li>
-                            <li className='tab-link active'><Link to="/dashboard/skills">Skills</Link></li>
+                            <li className='tab-link '><Link to="/dashboard/skills">Skills</Link></li>
                             <li className='tab-link'><Link to="/dashboard/message">Message</Link></li>
-                            <li className='tab-link'><Link to="/dashboard/homebanner">Home Banner</Link></li>
+                            <li className='tab-link active'><Link to="/dashboard/homebanner">Home Banner</Link></li>
                         </ul>
                         
                     
                     <button className='btn btn--accent'  onClick={handleAdd}><FiPlus/>New</button>
                 </div>
 
-                <SkillsTable isLoading={isLoading} skills={skills} isFetching={isFetching} setItemEdit={setItemEdit}/>
+                <HomeBannerTable isLoading={isLoading} homeBanner={homeBanner} isFetching={isFetching} setItemEdit={setItemEdit}/>
             </div>
             
             
         </div>
     </main>
 
-    {store.isAdd && <ModalAddSkills itemEdit={itemEdit}/>}
+    {store.isAdd && <ModalAddHomeBanner itemEdit={itemEdit}/>}
     {store.error && <ModalError position='center'/>}
     {store.success && <Toast/>}
 </section>
   )
 }
 
-export default Skills
+export default HomeBanner

@@ -1,5 +1,5 @@
 import React from 'react'
-import { baseImgUrl } from '../../../../helpers/functions-general'
+import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general'
 import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching';
 import useQueryData from '../../../../custom-hooks/useQueryData';
 
@@ -13,7 +13,7 @@ const Projects = () => {
       } = useQueryData(
           "/v1/projects", // endpoint
          "get", // method
-       "myportfolio", // key
+       "projects", // key
       
       );
 
@@ -38,7 +38,7 @@ const Projects = () => {
                             
                         </div>
                         <div className="card-description ">
-                            <img src={item.projects_image} alt="" className='card__img rounded-[1rem] ' />     
+                            <img src={`${devBaseImgUrl}/${item.projects_image}`} alt="" className='card__img rounded-[1rem] ' />     
                         </div>
                     </div>   
                     ))}

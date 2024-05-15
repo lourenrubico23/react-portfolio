@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../../../partials/header/Header'
-import { baseImgUrl } from '../../../../helpers/functions-general'
+import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general'
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import Socials from '../../../../partials/Socials'
 import { FaGraduationCap } from 'react-icons/fa'
@@ -8,6 +8,7 @@ import Footer from '../../../../partials/footer/Footer'
 import { StoreContext } from '../../../../../store/StoreContext'
 import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching'
 import useQueryData from '../../../../custom-hooks/useQueryData'
+import Skills from '../home_page/Skills'
 
 const About = ({item}) => {
     const {store,dispatch} = React.useContext(StoreContext)
@@ -27,11 +28,11 @@ const About = ({item}) => {
         isLoading,
         isFetching,
         error,
-        data: aboutme,
+        data: aboutme, skills
       } = useQueryData(
-          "/v1/aboutme", // endpoint
+          "/v1/aboutme", "/v1/skills", // endpoint
          "get", // method
-       "aboutme", // key
+       "aboutme", "skills" // key
       
       );
 
@@ -63,8 +64,8 @@ const About = ({item}) => {
                     )) }
                 
                 <div className="banner__button flex justify-between py-10">
-                   <a href="/CV_Rubico.pdf"  className="btn btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a> 
-                   <a href="" className="btn btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineKeyboardArrowRight className='text-2xl font-thicker text-darkcolor' /></span>view projects</a>
+                   <a href="/CV_Rubico.pdf"  className="btn2 btn-home uppercase" onClick={onButtonClick} ><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineFileDownload className='text-2xl font-thicker text-darkcolor' /></span>download cv</a> 
+                   <a href="" className="btn2 btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><MdOutlineKeyboardArrowRight className='text-2xl font-thicker text-darkcolor' /></span>view projects</a>
                 </div>
                 
             </div>
@@ -75,31 +76,8 @@ const About = ({item}) => {
     </div>
 
     <section className='skills bg-primary'>
-        <div className="container border-t-[1px] border-line border-accent/50">
-            <h3 className='uppercase text-white mt-[80px] mb-[100px] text-center'>skills</h3>
-
-            <div className="flex gap-10 justify-around w-full py-10 text-lightcolor pb-[100px]">
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/java.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>java</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/css.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>css</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/html.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>html</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/react.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>react js</h4>
-                </div>
-                <div className="skills text-center inline-block">
-                    <img src={`${baseImgUrl}/figma.png`} alt="" className='w-[100%]' />
-                    <h4 className='uppercase mt-3'>figma</h4>
-                </div>
-            </div>
+        <div className="container border-t-[1px] border-line border-accent/50 pb-[100px]">
+           <Skills/>
         </div>
         
     </section>

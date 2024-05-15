@@ -8,6 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 Header set Access-Control-Allow-Origin *
 
 #################################### ALL FOR DEVELOPER #################################
+RewriteRule ^upload/photo$ core/upload-photo.php [L]
 
 ### SETTING ROLES ###
 RewriteRule ^portfolio$ controllers/portfolio/portfolio.php [L]
@@ -38,3 +39,9 @@ RewriteRule ^message$ controllers/message/message.php [L]
 RewriteRule ^message/([0-9]+)$ controllers/message/message.php?messageid=$1 [L]
 RewriteRule ^message/active/([0-9]+)$ controllers/message/active.php?messageid=$1 [L]
 RewriteRule ^message/search$ controllers/message/search.php [L]
+
+### SETTING ROLES ###
+RewriteRule ^homeBanner$ controllers/homeBanner/homeBanner.php [L]
+RewriteRule ^homeBanner/([0-9]+)$ controllers/homeBanner/homeBanner.php?homeBannerid=$1 [L]
+RewriteRule ^homeBanner/active/([0-9]+)$ controllers/homeBanner/active.php?homeBannerid=$1 [L]
+RewriteRule ^homeBanner/search$ controllers/homeBanner/search.php [L]
