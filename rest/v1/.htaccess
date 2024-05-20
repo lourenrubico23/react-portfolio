@@ -45,3 +45,9 @@ RewriteRule ^homeBanner$ controllers/homeBanner/homeBanner.php [L]
 RewriteRule ^homeBanner/([0-9]+)$ controllers/homeBanner/homeBanner.php?homeBannerid=$1 [L]
 RewriteRule ^homeBanner/active/([0-9]+)$ controllers/homeBanner/active.php?homeBannerid=$1 [L]
 RewriteRule ^homeBanner/search$ controllers/homeBanner/search.php [L]
+
+### SETTING ROLES ###
+RewriteRule ^aboutBanner$ controllers/aboutBanner/aboutBanner.php [L]
+RewriteRule ^aboutBanner/([0-9]+)$ controllers/aboutBanner/aboutBanner.php?aboutBannerid=$1 [L]
+RewriteRule ^aboutBanner/active/([0-9]+)$ controllers/aboutBanner/active.php?aboutBannerid=$1 [L]
+RewriteRule ^aboutBanner/search$ controllers/aboutBanner/search.php [L]

@@ -57,6 +57,7 @@ const Portfolio = () => {
                             <li className='tab-link'><Link to="/dashboard/skills">Skills</Link></li>
                             <li className='tab-link'><Link to="/dashboard/contact">Contact</Link></li>
                             <li className='tab-link'><Link to="/dashboard/homebanner">Home Banner</Link></li>
+                            <li className='tab-link'><Link to="/dashboard/aboutbanner">About Banner</Link></li>
                         </ul>
                         
                     

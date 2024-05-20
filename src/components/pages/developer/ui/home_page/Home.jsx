@@ -33,7 +33,7 @@ const Home = () => {
         <Socials/>
     
     {homeBanner?.data.map((item, key) => (
-      <div className="banner pt-[100px] container text-lightcolor" key={key}>
+      <div className="banner pt-[150px] container text-lightcolor h-[100vh]" key={key}>
         <div className="banner__wrapper grid grid-cols-2 justify-center items-center">
             <img src={`${devBaseImgUrl}/${item.homeBanner_image}`} alt="" className='size-[800px]' />
             <div className="banner__content">

@@ -10,6 +10,7 @@ import Projects from "./components/pages/developer/dashboard/projects/Projects"
 import Skills from "./components/pages/developer/dashboard/skills/Skills"
 import Message from "./components/pages/developer/dashboard/message/Message"
 import HomeBanner from "./components/pages/developer/dashboard/homeBanner/HomeBanner"
+import AboutBanner from "./components/pages/developer/dashboard/aboutBanner/AboutBanner"
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/dashboard/skills" element={<Skills/>}/>
           <Route path="/dashboard/message" element={<Message/>}/>
           <Route path="/dashboard/homebanner" element={<HomeBanner/>}/>
+          <Route path="/dashboard/aboutbanner" element={<AboutBanner/>}/>
         </Routes>
       </Router>
       </StoreProvider>

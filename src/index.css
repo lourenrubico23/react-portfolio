@@ -175,7 +175,7 @@
   }
   
   .inputGroup input:focus, .inputGroup input:valid {
-    @apply border-accent
+    @apply border-accent 
   }
   
 
@@ -224,7 +224,7 @@
     @apply mb-1 block text-xs
   }
 
-  .input-wrap input, select, textarea{
+  .input-wrap input, textarea{
     @apply block w-full p-1 rounded-md outline-none border-2 focus:border-primary focus:bg-primary/5 focus:text-darkcolor text-darkcolor
   }
 

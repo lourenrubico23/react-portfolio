@@ -53,13 +53,13 @@ const Contact = ({itemEdit}) => {
      })
 
   return (
-    <section className="contactme bg-primary py-[5rem] ">
+    <section className="contactme bg-primary py-[6rem] h-[100vh] ">
         <div className="container">
                 <h1 className='text-7xl opacity-5 text-accent text-center uppercase'>Contact</h1>
                 <h2 className='uppercase text-3xl text-center -translate-y-[60px] text-lightcolor'>get in touch</h2>
-            <div className="contactme__wrapper grid grid-cols-[.5fr,1fr] gap-20">
-                
-                
+
+
+            <div className="contactme__wrapper grid grid-cols-[.5fr,1fr] gap-20 my-[6rem]">
                 
                 <div className="address text-lightcolor">
                     <h4>DON’T BE SHY!</h4>
@@ -101,61 +101,28 @@ const Contact = ({itemEdit}) => {
 
                 
                 <div className="inputs max-w-[700px]">
-                    <Formik 
-                     initialValues={initVal}
-                     validationSchema={yupSchema}
-                     onSubmit={async (values) => {
-                     mutation.mutate(values)
-                   }}>
-
-                    {(props) => { 
-                        return(
-                          <Form>
-                                <div className="names grid grid-cols-2 gap-2">
-                                    <div class="inputGroup">
-                                        <InputText
-                                            label="Your Name"
-                                            type="text"
-                                            name="message_name"
-                                            autoComplete="off"
-                                            className="max-w-[100%]"
-                                        />
-                                    </div>
-                                    <div class="inputGroup">
-                                        <InputText
-                                            label="Your Email"
-                                            type="text"
-                                            name="message_email"
-                                            autoComplete="off"
-                                            className="max-w-[100%]"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="inputGroup">
-                                        <InputText
-                                            label="Your Subject"
-                                            type="text"
-                                            name="message_subject"
-                                            autoComplete="off"
-                                            className="max-w-[700px] mb-2"
-                                        />
-                                </div>
-                                <div class="inputGroup">
-                                        <InputTextArea
-                                            label="Your Message"
-                                            type="text"
-                                            name="message_note"
-                                            className='max-w-[700px] h-[160px]'
-                                        />
-                                </div>
-                                <div className='flex justify-end'>
-                                    <a href="" className="btn2 btn-home uppercase" type="submit"><span className='iconround p-3 bg-btncircle rounded-full'><BsSend className='text-2xl font-thicker text-darkcolor' /></span>Send Message</a>
-                                </div>
-                            </Form>  
-                        )
-                    }}
+                    <div className="names grid grid-cols-2 gap-2">
+                        <div class="inputGroup">
+                            <input type="text" required="" autoComplete='off' className='max-w-[100%]'/>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" required="" autoComplete='off' className='max-w-[100%]'/>
+                            <label for="name">Your Email</label>
+                        </div>
+                    </div>
+                    <div class="inputGroup">
+                            <input type="text" required="" autoComplete='off' className='max-w-[700px] mb-2'/>
+                            <label for="name">Your Subject</label>
+                    </div>
+                    <div class="inputGroup">
+                            <textarea name="" id="" className='max-w-[700px] h-[160px]'></textarea>
+                            <label for="name">Your Message</label>
+                    </div>
+                    <div className='flex justify-end'>
+                        <a href="" className="btn2 btn-home uppercase"><span className='iconround p-3 bg-btncircle rounded-full'><BsSend className='text-2xl font-thicker text-darkcolor' /></span>Send Message</a>
+                    </div>
                     
-                    </Formik>
                 </div>
                 
             </div>
