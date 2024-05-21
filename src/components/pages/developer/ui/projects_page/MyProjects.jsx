@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../../../../partials/header/Header'
 import Socials from '../../../../partials/Socials'
 import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general'
@@ -6,8 +6,14 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
 import Footer from '../../../../partials/footer/Footer'
 import useQueryData from '../../../../custom-hooks/useQueryData'
 import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching'
+import Aos from "aos"
+import 'aos/dist/aos.css'
+
 
 const MyProjects = () => {
+    useEffect(() => {
+        Aos.init();
+      },[])
 
 
     const {
@@ -38,10 +44,10 @@ const MyProjects = () => {
                
                     <div className=" grid grid-cols-2 justify-center items-center pt-[200px] order-1" id='project1'>
                         <div className="project__content">
-                            <h1 className='text-7xl leading-[3.8rem] uppercase mb-10'>{item.projects_title}</h1>
-                            <p className='w-[80%] mb-10'>{item.projects_description}</p>
+                            <h1 className='text-7xl leading-[3.8rem] uppercase mb-10' data-aos="fade-up" data-aos-duration="1000">{item.projects_title}</h1>
+                            <p className='w-[80%] mb-10' data-aos='fade-left' data-aos-duration="1000">{item.projects_description}</p>
                         </div>
-                        <img src={`${devBaseImgUrl}/${item.projects_image}`} alt="" className='size-full' />
+                        <img src={`${devBaseImgUrl}/${item.projects_image}`} alt="" className='size-full' data-aos='fade-right' data-aos-duration="1000" />
                     </div>
                 
             <a href="#project2" className='scroll-smooth'><span><MdOutlineKeyboardArrowRight className='text-7xl font-thicker text-buttons mx-auto rotate-90 my-20 ' /></span></a>

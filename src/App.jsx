@@ -11,6 +11,12 @@ import Skills from "./components/pages/developer/dashboard/skills/Skills"
 import Message from "./components/pages/developer/dashboard/message/Message"
 import HomeBanner from "./components/pages/developer/dashboard/homeBanner/HomeBanner"
 import AboutBanner from "./components/pages/developer/dashboard/aboutBanner/AboutBanner"
+import ProtectedRoute from "./components/pages/developer/access/ProtectedRoute"
+import Login from "./components/pages/developer/access/Login"
+import ForgotPassword from "./components/pages/developer/access/ForgotPassword"
+import CreatePassword from "./components/pages/developer/access/CreatePassword"
+import PageNotFound from "./components/partials/PageNotFound"
+import Users from "./components/pages/developer/dashboard/users/Users"
 
 
 function App() {
@@ -26,11 +32,18 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/project" element={<MyProjects/>}/>
           <Route path="/contact" element={<ContactMe/>}/>
+
+          {/* Dashboard */}
           <Route path="/dashboard/projects" element={<Projects/>}/>
           <Route path="/dashboard/skills" element={<Skills/>}/>
           <Route path="/dashboard/message" element={<Message/>}/>
           <Route path="/dashboard/homebanner" element={<HomeBanner/>}/>
           <Route path="/dashboard/aboutbanner" element={<AboutBanner/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/forgot-password" element={<ForgotPassword/>}/>
+          <Route path="/create-password" element={<CreatePassword/>}/>
+          <Route path="/user" element={<Users/>}/>
+          <Route path="/*" element={<PageNotFound/>}/>
         </Routes>
       </Router>
       </StoreProvider>

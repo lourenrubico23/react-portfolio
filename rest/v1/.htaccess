@@ -51,3 +51,13 @@ RewriteRule ^aboutBanner$ controllers/aboutBanner/aboutBanner.php [L]
 RewriteRule ^aboutBanner/([0-9]+)$ controllers/aboutBanner/aboutBanner.php?aboutBannerid=$1 [L]
 RewriteRule ^aboutBanner/active/([0-9]+)$ controllers/aboutBanner/active.php?aboutBannerid=$1 [L]
 RewriteRule ^aboutBanner/search$ controllers/aboutBanner/search.php [L]
+
+### SETTING USER ###
+RewriteRule ^user$ controllers/user/user.php [L]
+RewriteRule ^user/([0-9]+)$ controllers/user/user.php?userid=$1 [L]
+RewriteRule ^user/active/([0-9]+)$ controllers/user/active.php?userid=$1 [L]
+RewriteRule ^user/search$ controllers/user/search.php [L]
+RewriteRule ^user/password$ controllers/user/set-password.php [L]
+RewriteRule ^user/reset$ controllers/user/reset-password.php [L]
+RewriteRule ^user/login$ controllers/user/login.php [L]
+RewriteRule ^user/token$ controllers/user/token.php [L]

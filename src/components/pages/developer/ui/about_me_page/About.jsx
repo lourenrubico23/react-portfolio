@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../../../../partials/header/Header'
 import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general'
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md'
@@ -10,8 +10,13 @@ import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching'
 import useQueryData from '../../../../custom-hooks/useQueryData'
 import Skills from '../home_page/Skills'
 import Education from './Education'
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 const About = () => {
+  useEffect(() => {
+    Aos.init();
+  },[])
 
       const {
         isLoading,
@@ -33,14 +38,14 @@ const About = () => {
 
     <div className="banner pt-[100px] h-full bg-primary text-lightcolor py-[5rem]">
         
-        <div className="banner__wrapper grid grid-cols-[.4fr,1fr] items-center container" >
+        <div className="banner__wrapper grid grid-cols-[.4fr,1fr] items-center container" data-aos="fade-down" data-aos-duration="1000" >
           <div className="banner__content" >             
-            <h1 className='text-7xl leading-[3.8rem] uppercase mb-20 '>About <br /> Me</h1>
-            <h2 className='text-3xl'>I am Louren Isobel Rubico</h2>
-            <p className='w-[600px] mb-10'>A Filipino web designer and front-end developer based in the Philippines, I bring a unique blend of cultural insight, creativity, and technical expertise to every project I undertake. With a deep understanding of both local and global design trends, I strive to create visually stunning and user-friendly websites that resonate with diverse audiences.</p>
+            <h1 className='text-7xl leading-[3.8rem] uppercase mb-20' data-aos="fade-down" data-aos-duration="1000">About <br /> Me</h1>
+            <h2 className='text-3xl' data-aos="fade-right" data-aos-duration="1000">I am Louren Isobel Rubico</h2>
+            <p className='w-[600px] mb-10' data-aos="fade-right" data-aos-duration="1500">A Filipino web designer and front-end developer based in the Philippines, I bring a unique blend of cultural insight, creativity, and technical expertise to every project I undertake. With a deep understanding of both local and global design trends, I strive to create visually stunning and user-friendly websites that resonate with diverse audiences.</p>
             <Education/>
           </div>
-          <img src={`${baseImgUrl}/picabout.svg`} alt="" className='-translate-x-[50px]' />
+          <img src={`${baseImgUrl}/picabout.svg`} alt="" className='-translate-x-[50px]' data-aos="fade-left" data-aos-duration="1000"/>
         </div>
     </div>
   

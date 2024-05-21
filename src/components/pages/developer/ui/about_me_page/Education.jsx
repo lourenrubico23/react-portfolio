@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useQueryData from '../../../../custom-hooks/useQueryData';
 import { MdOutlineFileDownload, MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { FaGraduationCap } from 'react-icons/fa';
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 const Education = () => {
+  useEffect(() => {
+    Aos.init();
+  },[])
 
 
     const onButtonClick = () => {
@@ -32,9 +37,9 @@ const Education = () => {
     <>
     {aboutme?.data.map((item, key) => (
         <div className="educards" key={key}>
-    <div className="educard grid grid-cols-[.5fr,3fr]">
+    <div className="educard grid grid-cols-[.5fr,3fr]"data-aos="fade-down" data-aos-duration="1000">
         <span className='p-2 bg-btncircle border-[1px] border-buttons rounded-full w-[50px] h-[50px]'><FaGraduationCap className='text-3xl text-darkcolor mx-auto'/></span>
-        <div className="cardinfo">
+        <div className="cardinfo" >
             <h4>{item.aboutme_startYear}-{item.aboutme_endYear}</h4>
             <p>{item.aboutme_course}</p>
             <p className='mb-5'>{item.aboutme_school}</p>

@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { baseImgUrl, devBaseImgUrl } from '../../../../helpers/functions-general'
 import SpinnerFetching from '../../../../partials/spinners/SpinnerFetching';
 import useQueryData from '../../../../custom-hooks/useQueryData';
+import Aos from "aos"
+import 'aos/dist/aos.css'
 
 const Projects = () => {
+    useEffect(() => {
+        Aos.init();
+      },[])
 
     const {
         isLoading,
@@ -27,7 +32,7 @@ const Projects = () => {
             <div className="projects__wrapper mb-10 flex flex-cols-3 gap-5  w-[full] mx-auto">
 
                     {projects?.data.map((item,key) => (
-                      <div className="card rounded-[1rem] bg-lightcolor overflow-hidden mx-auto" key={key}>
+                      <div className="card rounded-[1rem] bg-lightcolor overflow-hidden mx-auto" data-aos="zoom-in" data-aos-duration="1000" key={key}>
                         <div className="card-img">
                             <div className="content text-darkcolor p-7">
                                 <h3>{item.projects_title}</h3>
